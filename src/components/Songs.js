@@ -1,10 +1,13 @@
 import React from 'react'
-import Player from './Player'
+
 
 const Songs=()=> {
     return (
-        <div className="song">
-        <Player/>
+        <div className="song__container">
+            <h1>Picture</h1>
+            <h1>Song Name</h1>
+            <h1>Artist</h1>
+
             
         </div>
     )
