@@ -4,4 +4,30 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.time__control{
+    width: 50%;
+    background-color: coral;
+    display: flex;
+    input{
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+    p{
+        padding: 1rem;
+    }
+}
+
+.play__control{
+    display: flex;
+    justify-content: space-between;
+    background-color: cornflowerblue;
+    align-items: center;
+    width: 30%;
+    padding: 1rem;
+    svg{
+        cursor: pointer;
+    }
 }

@@ -14,6 +14,7 @@ const Player=()=> {
             </div>
 
             <div className="play__control">
+            
                 <FontAwesomeIcon className="skip__back" size="2x" icon={faAngleLeft}/>
 
                 <FontAwesomeIcon className="play" size="2x" icon={faPlay}/>
