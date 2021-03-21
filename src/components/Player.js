@@ -6,14 +6,16 @@ import {faPlay, faAngleLeft, faAngleRight} from "@fortawesome/free-solid-svg-ico
 
 const Player=({currentSong, isPlaying , setIsPlaying})=> {
 
+     //--------------STATES-----------------//
     //song info state
     const [songInfo, setSongInfo] = useState({
         currentTime: null,
         duration: null,
     });
-    
     //need reference to the audio element
     const audioRef = useRef(null);
+
+    //---------------FUNCTIONS--------------//
 
     //need function onClick when play pause skip and reverse
     const playSongHandler = () =>{
@@ -43,14 +45,43 @@ const Player=({currentSong, isPlaying , setIsPlaying})=> {
         console.log(songInfo.currentTime);
     };
 
+    //need function to display data on slider
+   const getTime= (time) => {
+    //formatting number in seconds   
+    return(
+           Math.floor(time/60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+       );
+   };
+
+
+   //function to handle drag of slider and song duration
+   const dragHandler = (e) =>{
+       audioRef.current.currentTime = e.target.value;
+       setSongInfo({...songInfo, currentTime: e.target.value})
+
+   }
+
+
+
+   //--------RETURN--------------//
+
     return (
+
         <div className="player">
 
             <div className="time__control">
-                <p>{songInfo.currentTime}</p>
-                <input type="range"/>
-                <p></p>
+                <p>{getTime(songInfo.currentTime)}</p>
+
+                <input
+                 min={0}
+                 onChange={dragHandler}
+                 max={songInfo.duration}
+                 value={songInfo.currentTime} 
+                 type="range"/>
+
+                <p>{getTime(songInfo.duration)}</p>
             </div>
+
 
             <div className="play__control">
             
@@ -61,7 +92,8 @@ const Player=({currentSong, isPlaying , setIsPlaying})=> {
                 <FontAwesomeIcon className="skip__front" size="2x" icon={faAngleRight}/>
 
             </div>
-            <audio onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
+
+            <audio onLoadedMetadata={timeUpdateHandler} onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
             
         </div>
     )
