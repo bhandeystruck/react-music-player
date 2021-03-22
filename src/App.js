@@ -1,7 +1,7 @@
 import Player from "./components/Player";
 import Songs from "./components/Songs";
 import './styles/app.scss';
-import data from "./util";
+import data from "./data";
 import {useState, useRef} from "react";
 import Library from "./components/Library"
 import Nav from "./components/Nav";
@@ -59,7 +59,11 @@ function App() {
       audioRef={audioRef}
       setIsPlaying={setIsPlaying}
       isPlaying={isPlaying}
-      currentSong={currentSong}/>
+      currentSong={currentSong}
+      songs={songs}
+      setCurrentSong={setCurrentSong}
+      setSongs={setSongs}
+      />
 
     <Library
       audioRef={audioRef}
@@ -77,6 +81,8 @@ function App() {
       src={currentSong.audio}>
 
     </audio>
+
+    <footer>By Aditya Bhandari</footer>
   
     
      
