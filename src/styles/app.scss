@@ -3,12 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+body{
+    font-family:"Lato", sans-serif;
 
+}
 
 h1,h2,h3{
     color: rgb(50,50,50);
+
 }
 
+h3,h4{
+    font-weight: 400;
+    color: rgb(99, 91, 91);
+}
 
 @import "./player";
 @import "./song";
+@import "./library";
+@import"./nav";
