@@ -2,9 +2,23 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    
 }
+
+.App{
+    height: 100vh;
+    background-color: aquamarine;
+    transition: all 0.5s ease;
+}
+
+.library-active{
+    padding-left: 20%;
+    background-color: aquamarine;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 body{
+    
     font-family:"Lato", sans-serif;
 
 }

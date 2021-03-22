@@ -95,14 +95,12 @@ const Player=({currentSong, isPlaying , setIsPlaying, audioRef, setSongInfo, son
 
             <div className="time__control">
                 <p>{getTime(songInfo.currentTime)}</p>
-
-                <input
-                 min={0}
-                 onChange={dragHandler}
-                 max={songInfo.duration || 0}
-                 value={songInfo.currentTime} 
-                 type="range"/>
-
+                    <input
+                    min={0}
+                    onChange={dragHandler}
+                    max={songInfo.duration || 0}
+                    value={songInfo.currentTime} 
+                    type="range"/>
                 <p>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</p>
             </div>
 
